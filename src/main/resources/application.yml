@@ -1,1 +1,3 @@
-
+server:
+ servlet:
+    context-path: /geladao-cliente-pedido/api

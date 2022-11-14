@@ -2,7 +2,6 @@ package br.com.casadogeladao.geladaoclientepedido.cliente.domain;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,9 +10,7 @@ import javax.persistence.Id;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-
 import org.hibernate.validator.constraints.br.CPF;
-
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -45,7 +42,6 @@ public class Cliente {
 	private LocalDateTime dataHoraDoCadastro;
 	private LocalDateTime dataHoraDaUltimaAlteracao;
 	
-	
 	public Cliente(@NotBlank String nomeCompleto, @NotBlank @Email String email,
 			@NotBlank String celular, String telefone, Sexo sexo, @NotNull LocalDateTime dataNascimento,
 			@CPF String cpf, @NotNull Boolean aceitaTermos) {
@@ -59,7 +55,4 @@ public class Cliente {
 		this.aceitaTermos = aceitaTermos;
 		this.dataHoraDoCadastro = LocalDateTime.now();
 	}
-	
-	
-
 }

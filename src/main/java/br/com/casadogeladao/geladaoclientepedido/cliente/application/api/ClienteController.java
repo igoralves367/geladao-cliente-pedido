@@ -1,7 +1,6 @@
 package br.com.casadogeladao.geladaoclientepedido.cliente.application.api;
 
 import java.util.List;
-
 import org.springframework.web.bind.annotation.RestController;
 import br.com.casadogeladao.geladaoclientepedido.cliente.application.service.ClienteService;
 import lombok.RequiredArgsConstructor;
@@ -24,7 +23,8 @@ public class ClienteController implements ClienteAPI {
 	@Override
 	public List<ClienteListResponse> getTodosCliente() {
 		log.info("[inicia] ClienteController - getTodosCliente");
+		List<ClienteListResponse> clientes = clienteService.buscaTodosClientes();
 		log.info("[finaliza] ClienteController - getTodosCliente");
-		return null;
+		return clientes;
 	}
 }

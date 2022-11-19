@@ -50,7 +50,7 @@ public class ClienteApplicationService implements ClienteService {
 	public void delataClienteAtravesId(UUID idCliente) {
 		log.info("[inicia] ClienteApplicationService - delataClienteAtravesId");
 		Cliente cliente = clienteRepository.buscaClienteAtravesId(idCliente);
-		//clienteRepository.delataCliente(cliente);
+		clienteRepository.delataCliente(cliente);
 		log.info("[finaliza] ClienteApplicationService - delataClienteAtravesId");
 	}
 }

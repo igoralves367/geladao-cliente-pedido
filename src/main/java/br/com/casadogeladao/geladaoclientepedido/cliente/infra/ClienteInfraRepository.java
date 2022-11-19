@@ -1,7 +1,7 @@
 package br.com.casadogeladao.geladaoclientepedido.cliente.infra;
 
 import java.util.List;
-
+import java.util.UUID;
 import org.springframework.stereotype.Repository;
 import br.com.casadogeladao.geladaoclientepedido.cliente.application.repository.ClienteRepository;
 import br.com.casadogeladao.geladaoclientepedido.cliente.domain.Cliente;
@@ -26,7 +26,16 @@ public class ClienteInfraRepository implements ClienteRepository {
 	public List<Cliente> buscaTodosClientes() {
 		log.info("[inicia] ClienteInfraRepository - buscaTodosClientes");
 		List<Cliente> todosClientes = clienteSpringDataJPARepository.findAll();
-		log.info("[inicia] ClienteInfraRepository - buscaTodosClientes");
+		log.info("[finaliza] ClienteInfraRepository - buscaTodosClientes");
 		return todosClientes;
+	}
+
+	@Override
+	public Cliente buscaClienteAtravesId(UUID idCliente) {
+		log.info("[inicia] ClienteInfraRepository - buscaClienteAtravesId");
+		Cliente cliente = clienteSpringDataJPARepository.findById(idCliente)
+				.orElseThrow(() -> new RuntimeException("cliente não encontrato"));
+		log.info("[finaliza] ClienteInfraRepository - buscaClienteAtravesId");
+		return cliente;
 	}
 }

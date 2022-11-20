@@ -1,5 +1,8 @@
 package br.com.casadogeladao.geladaoclientepedido.pedido.infra;
 
+import java.util.List;
+import java.util.UUID;
+
 import org.springframework.stereotype.Repository;
 
 import br.com.casadogeladao.geladaoclientepedido.pedido.application.service.PedidoRepository;
@@ -19,6 +22,13 @@ public class PedidoInfraRepository implements PedidoRepository {
 		pedidoSpringDataJPARepository.save(pedido);
 		log.info("[finaliza] PedidoInfraRepository - salvaPedido");
 		return pedido;
+	}
+
+	@Override
+	public List<Pedido> buscaPedidosDoClienteComId(UUID idCliente) {
+		log.info("[inicia] PedidoInfraRepository - buscaPedidosDoClienteComId");
+		log.info("[finaliza] PedidoInfraRepository - buscaPedidosDoClienteComId");
+		return null;
 	}
 
 }

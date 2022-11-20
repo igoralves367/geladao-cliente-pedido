@@ -3,6 +3,8 @@ package br.com.casadogeladao.geladaoclientepedido.cliente.application.api;
 import java.util.List;
 import java.util.UUID;
 
+import javax.validation.Valid;
+
 import org.springframework.web.bind.annotation.RestController;
 import br.com.casadogeladao.geladaoclientepedido.cliente.application.service.ClienteService;
 import lombok.RequiredArgsConstructor;
@@ -46,4 +48,13 @@ public class ClienteController implements ClienteAPI {
 		clienteService.delataClienteAtravesId(idCliente);
 		log.info("[finaliza] ClienteController - deletaClienteAtravesId");
 	}
+
+	@Override
+	public void pathAlteraCliente(UUID idCliente, @Valid ClienteAlteraçãoRequest clienteAlteracaoRequest) {
+		log.info("[inicia] ClienteController - pathAlteraCliente");
+		log.info("[idCliente] {}", idCliente);
+		log.info("[finaliza] ClienteController - pathAlteraCliente");
+		
+	}
+	
 }

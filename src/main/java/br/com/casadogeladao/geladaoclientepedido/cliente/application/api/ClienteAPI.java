@@ -2,10 +2,13 @@ package br.com.casadogeladao.geladaoclientepedido.cliente.application.api;
 
 import java.util.List;
 import java.util.UUID;
+
 import javax.validation.Valid;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -31,4 +34,9 @@ public interface ClienteAPI {
 	@DeleteMapping(value = "/{idCliente}")
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)
 	void deletaClienteAtravesId(@PathVariable UUID idCliente);
+	
+	@PatchMapping(value = "/{idCliente}")
+	@ResponseStatus(code = HttpStatus.NO_CONTENT)
+	void pathAlteraCliente(@PathVariable UUID idCliente,
+			@Valid	@RequestBody ClienteAlteraçãoRequest clienteAlteracaoRequest); 
 }

@@ -10,8 +10,9 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
+import javax.validation.Valid;
 
+import br.com.casadogeladao.geladaoclientepedido.pedido.application.api.PedidoRequest;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,43 +25,20 @@ public class Pedido {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(columnDefinition = "uuid", name = "idPedido", updatable = false, unique = true, nullable = false)
 	private UUID idPedido;
-	@NotNull
-	@Column(columnDefinition = "uuid", name = "idCliente", nullable = false)
-	private UUID idCliente;
+	@Column(columnDefinition = "uuid", name = "idClientePedido", nullable = false)
+	private UUID idClientePedido;
 	@Enumerated(EnumType.STRING)
 	private Sabor sabor;
 	private int quantidade;
-
+	
 	private LocalDateTime dataHoraDoCadastro;
 	private LocalDateTime dataHoraDaUltimaAlteracao;
 	
-//	public Pet(UUID idCliente, @Valid PetRequest petRequest) {
-//		this.idClienteTutor = idCliente;
-//		this.nomePet = petRequest.getNomePet();
-//		this.porte = petRequest.getPorte();
-//		this.tipo = petRequest.getTipo();
-//		this.microchip = petRequest.getMicrochip();
-//		this.raca = petRequest.getRaca();
-//		this.sexo = petRequest.getSexo();
-//		this.pelagemCor = petRequest.getPelagemCor();
-//		this.dataNascimento = petRequest.getDataNascimento();
-//		this.rga = petRequest.getRga();
-//		this.peso = petRequest.getPeso();
-//		this.dataHoraDoCadastro = LocalDateTime.now();
-//	}
-//
-//	public void altera(PetAlteracaoRequest petRequest) {
-//		this.nomePet = petRequest.getNomePet();
-//		this.porte = petRequest.getPorte();
-//		this.tipo = petRequest.getTipo();
-//		this.microchip = petRequest.getMicrochip();
-//		this.raca = petRequest.getRaca();
-//		this.sexo = petRequest.getSexo();
-//		this.pelagemCor = petRequest.getPelagemCor();
-//		this.dataNascimento = petRequest.getDataNascimento();
-//		this.rga = petRequest.getRga();
-//		this.peso = petRequest.getPeso();
-//		this.dataHoraDaUltimaAlteracao = LocalDateTime.now();	
-//	}
+	public Pedido(UUID idCliente, @Valid PedidoRequest pedidoRequest) {
+		this.idClientePedido = idCliente;
+		this.sabor = pedidoRequest.getSabor();
+		this.quantidade = pedidoRequest.getQuantidade();
+		this.dataHoraDaUltimaAlteracao = LocalDateTime.now();
+	}
 }
 //definimos o modelo de negocio, dominio e construtor

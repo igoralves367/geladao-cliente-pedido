@@ -10,7 +10,6 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import lombok.AccessLevel;
@@ -28,7 +27,6 @@ public class Pedido {
 	@NotNull
 	@Column(columnDefinition = "uuid", name = "idCliente", nullable = false)
 	private UUID idCliente;
-	@NotBlank
 	@Enumerated(EnumType.STRING)
 	private Sabor sabor;
 	private int quantidade;

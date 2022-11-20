@@ -53,6 +53,7 @@ public class ClienteController implements ClienteAPI {
 	public void pathAlteraCliente(UUID idCliente, @Valid ClienteAlteraçãoRequest clienteAlteracaoRequest) {
 		log.info("[inicia] ClienteController - pathAlteraCliente");
 		log.info("[idCliente] {}", idCliente);
+		clienteService.pathAlteraCliente(idCliente, clienteAlteracaoRequest);
 		log.info("[finaliza] ClienteController - pathAlteraCliente");
 		
 	}

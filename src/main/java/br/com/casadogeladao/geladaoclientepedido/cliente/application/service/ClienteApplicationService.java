@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
+import br.com.casadogeladao.geladaoclientepedido.cliente.application.api.ClienteAlteraçãoRequest;
 import br.com.casadogeladao.geladaoclientepedido.cliente.application.api.ClienteDetalhadoResponse;
 import br.com.casadogeladao.geladaoclientepedido.cliente.application.api.ClienteListResponse;
 import br.com.casadogeladao.geladaoclientepedido.cliente.application.api.ClienteRequest;
@@ -17,7 +18,7 @@ import lombok.extern.log4j.Log4j2;
 @Service
 @Log4j2
 @RequiredArgsConstructor
-public class ClienteApplicationService implements ClienteService {
+public class ClienteApplicationService  implements ClienteService {
 	private final ClienteRepository clienteRepository;
 
 	@Override
@@ -52,5 +53,13 @@ public class ClienteApplicationService implements ClienteService {
 		Cliente cliente = clienteRepository.buscaClienteAtravesId(idCliente);
 		clienteRepository.delataCliente(cliente);
 		log.info("[finaliza] ClienteApplicationService - delataClienteAtravesId");
+	}
+
+	@Override
+	public void pathAlteraCliente(UUID idCliente, ClienteAlteraçãoRequest clienteAlteracaoRequest) {
+		log.info("[inicia] ClienteApplicationService - pathAlteraCliente");
+		Cliente cliente = clienteRepository.buscaClienteAtravesId(idCliente);
+		//clienteRepository.pathAlteraCliente(cliente);	
+		log.info("[finaliza] ClienteApplicationService - pathAlteraCliente");
 	}
 }

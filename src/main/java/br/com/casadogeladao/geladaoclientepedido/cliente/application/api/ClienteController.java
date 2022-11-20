@@ -50,7 +50,7 @@ public class ClienteController implements ClienteAPI {
 	}
 
 	@Override
-	public void pathAlteraCliente(UUID idCliente, @Valid ClienteAlteraçãoRequest clienteAlteracaoRequest) {
+	public void pathAlteraCliente(UUID idCliente, @Valid ClienteAlteracaoRequest clienteAlteracaoRequest) {
 		log.info("[inicia] ClienteController - pathAlteraCliente");
 		log.info("[idCliente] {}", idCliente);
 		clienteService.pathAlteraCliente(idCliente, clienteAlteracaoRequest);

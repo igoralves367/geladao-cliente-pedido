@@ -5,7 +5,7 @@ import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
-import br.com.casadogeladao.geladaoclientepedido.cliente.application.api.ClienteAlteraçãoRequest;
+import br.com.casadogeladao.geladaoclientepedido.cliente.application.api.ClienteAlteracaoRequest;
 import br.com.casadogeladao.geladaoclientepedido.cliente.application.api.ClienteDetalhadoResponse;
 import br.com.casadogeladao.geladaoclientepedido.cliente.application.api.ClienteListResponse;
 import br.com.casadogeladao.geladaoclientepedido.cliente.application.api.ClienteRequest;
@@ -56,10 +56,11 @@ public class ClienteApplicationService  implements ClienteService {
 	}
 
 	@Override
-	public void pathAlteraCliente(UUID idCliente, ClienteAlteraçãoRequest clienteAlteracaoRequest) {
+	public void pathAlteraCliente(UUID idCliente, ClienteAlteracaoRequest clienteAlteracaoRequest) {
 		log.info("[inicia] ClienteApplicationService - pathAlteraCliente");
 		Cliente cliente = clienteRepository.buscaClienteAtravesId(idCliente);
-		//clienteRepository.pathAlteraCliente(cliente);	
+		cliente.altera(clienteAlteracaoRequest);
+		clienteRepository.salva(cliente);	
 		log.info("[finaliza] ClienteApplicationService - pathAlteraCliente");
 	}
 }

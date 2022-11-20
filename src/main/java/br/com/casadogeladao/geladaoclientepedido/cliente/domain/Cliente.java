@@ -13,6 +13,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.br.CPF;
 
+import br.com.casadogeladao.geladaoclientepedido.cliente.application.api.ClienteAlteracaoRequest;
 import br.com.casadogeladao.geladaoclientepedido.cliente.application.api.ClienteRequest;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -58,4 +59,15 @@ public class Cliente {
 		this.aceitaTermos = clienteRequest.getAceitaTermos();
 		this.dataHoraDoCadastro = LocalDateTime.now();
 	}
+
+	public void altera(ClienteAlteracaoRequest clienteRequest) {
+		this.nomeCompleto = clienteRequest.getNomeCompleto();
+		this.celular = clienteRequest.getCelular();
+		this.telefone = clienteRequest.getTelefone();
+		this.sexo = clienteRequest.getSexo();
+		this.dataNascimento = clienteRequest.getDataNascimento();
+		this.aceitaTermos = clienteRequest.getAceitaTermos();
+		this.dataHoraDaUltimaAlteracao = LocalDateTime.now();
+		}
+	
 }

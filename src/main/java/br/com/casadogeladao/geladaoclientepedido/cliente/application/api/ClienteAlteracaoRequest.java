@@ -9,7 +9,7 @@ import br.com.casadogeladao.geladaoclientepedido.cliente.domain.Sexo;
 import lombok.Value;
 
 @Value
-public class ClienteAlteraçãoRequest {
+public class ClienteAlteracaoRequest {
 	@NotBlank
 	private String nomeCompleto;
 	@NotBlank

@@ -12,4 +12,5 @@ import br.com.casadogeladao.geladaoclientepedido.pedido.application.api.PedidoRe
 public interface PedidoService {
 	PedidoResponse criaPedido(UUID idCliente, @Valid PedidoRequest pedidoRequest);
 	List<PedidoClienteListResponse> buscaPedidosDoClienteComId(UUID idCliente);
+	void deletaPedidoAtrvesId(UUID idCliente, UUID idPedido);
 }

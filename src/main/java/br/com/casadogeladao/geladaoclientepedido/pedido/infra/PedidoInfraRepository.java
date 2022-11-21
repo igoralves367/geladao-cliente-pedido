@@ -32,4 +32,11 @@ public class PedidoInfraRepository implements PedidoRepository {
 		return pedidos;
 	}
 
+	@Override
+	public void delataPedidoAtrvesId(UUID idCliente, UUID idPedido) {
+		log.info("[inicia] PedidoInfraRepository - delataPedidoAtrvesId");
+		log.info("[finaliza] PedidoInfraRepository - delataPedidoAtrvesId");
+		
+	}
+
 }

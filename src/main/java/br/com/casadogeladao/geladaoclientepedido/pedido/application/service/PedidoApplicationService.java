@@ -40,4 +40,13 @@ public class PedidoApplicationService implements PedidoService {
 	  	return PedidoClienteListResponse.converte(pedidosDoCliente);
 	}
 
+	@Override
+	public void deletaPedidoAtrvesId(UUID idCliente, UUID idPedido) {
+		log.info("[inica] PedidoApplicationService - deletaPedidoAtrvesId");
+	    clienteService.buscaClienteAtravesId(idCliente);
+	    pedidoRepository.delataPedidoAtrvesId(idCliente, idPedido);
+	    log.info("[finaliza] PedidoApplicationService - deletaPedidoAtrvesId");
+		
+	}
+
 }

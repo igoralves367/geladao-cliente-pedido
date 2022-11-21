@@ -32,4 +32,13 @@ public class PedidoController implements PedidoAPI {
 		return pedidosDoCleinte;
 	}
 
+	@Override
+	public PedidoClienteDetalhadoResponse getPedidoDoClienteComId(UUID idCliente, UUID idPedido) {
+		log.info("[inicia] PedidoController - getPedidoDoClienteComId");
+		log.info("[idCliente] {} - [idPet] {}", idCliente, idPedido);
+		PedidoClienteDetalhadoResponse pedido = pedidoService.buscaPedidoDoClienteComID(idCliente, idPedido);
+		log.info("[finaliza] PedidoController - getPedidoDoClienteComId");
+		return pedido;
+	}
+
 }

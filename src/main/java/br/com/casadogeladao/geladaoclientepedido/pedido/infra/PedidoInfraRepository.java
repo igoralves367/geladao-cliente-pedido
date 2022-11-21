@@ -3,8 +3,10 @@ package br.com.casadogeladao.geladaoclientepedido.pedido.infra;
 import java.util.List;
 import java.util.UUID;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
+import br.com.casadogeladao.geladaoclientepedido.handler.APIException;
 import br.com.casadogeladao.geladaoclientepedido.pedido.application.service.PedidoRepository;
 import br.com.casadogeladao.geladaoclientepedido.pedido.domain.Pedido;
 import lombok.RequiredArgsConstructor;
@@ -29,15 +31,16 @@ public class PedidoInfraRepository implements PedidoRepository {
 		log.info("[inicia] PedidoInfraRepository - buscaPedidosDoClienteComId");
 		List<Pedido> pedidos = pedidoSpringDataJPARepository.findByIdClientePedido(idCliente);
 		log.info("[finaliza] PedidoInfraRepository - buscaPedidosDoClienteComId");
-		return pedidos;
+		return pedidos;		
 	}
 
 	@Override
-	public void delataPedidoAtrvesId(UUID idCliente, UUID idPedido) {
-		log.info("[inicia] PedidoInfraRepository - delataPedidoAtrvesId");
-		
-		log.info("[finaliza] PedidoInfraRepository - delataPedidoAtrvesId");
-		
+	public Pedido buscaPedidoPeloId(UUID idPedido) {
+		log.info("[inicia] PedidoInfraRepository - buscaPedidoPeloId");
+		Pedido pedido = pedidoSpringDataJPARepository.findById(idPedido)
+				.orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Pedido não encontrado para IdPedido =" + idPedido));
+		log.info("[finaliza] PedidoInfraRepository - buscaPedidoPeloId");
+		return pedido;
 	}
 
 }

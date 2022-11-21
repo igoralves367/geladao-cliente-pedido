@@ -8,6 +8,7 @@ import javax.validation.Valid;
 import org.springframework.stereotype.Service;
 
 import br.com.casadogeladao.geladaoclientepedido.cliente.application.service.ClienteService;
+import br.com.casadogeladao.geladaoclientepedido.pedido.application.api.PedidoClienteDetalhadoResponse;
 import br.com.casadogeladao.geladaoclientepedido.pedido.application.api.PedidoClienteListResponse;
 import br.com.casadogeladao.geladaoclientepedido.pedido.application.api.PedidoRequest;
 import br.com.casadogeladao.geladaoclientepedido.pedido.application.api.PedidoResponse;
@@ -38,6 +39,15 @@ public class PedidoApplicationService implements PedidoService {
 	    List<Pedido> pedidosDoCliente = pedidoRepository.buscaPedidosDoClienteComId(idCliente);
 	    log.info("[finaliza] PedidoApplicationService - buscaPedidosDoClienteComId");
 	  	return PedidoClienteListResponse.converte(pedidosDoCliente);
+	}
+
+	@Override
+	public PedidoClienteDetalhadoResponse buscaPedidoDoClienteComID(UUID idCliente, UUID idPedido) {
+		log.info("[inica] PedidoApplicationService - buscaPedidoDoClienteComID");
+	    clienteService.buscaClienteAtravesId(idCliente);
+	    Pedido pedido = pedidoRepository.buscaPedidoPeloId(idPedido);	 
+	    log.info("[inica] PedidoApplicationService - buscaPedidoDoClienteComID");
+		return new PedidoClienteDetalhadoResponse(pedido);
 	}
 
 }

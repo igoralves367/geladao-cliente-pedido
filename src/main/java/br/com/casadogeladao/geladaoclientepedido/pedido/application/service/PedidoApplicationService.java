@@ -46,8 +46,17 @@ public class PedidoApplicationService implements PedidoService {
 		log.info("[inica] PedidoApplicationService - buscaPedidoDoClienteComID");
 	    clienteService.buscaClienteAtravesId(idCliente);
 	    Pedido pedido = pedidoRepository.buscaPedidoPeloId(idPedido);	 
-	    log.info("[inica] PedidoApplicationService - buscaPedidoDoClienteComID");
+	    log.info("[finaliza] PedidoApplicationService - buscaPedidoDoClienteComID");
 		return new PedidoClienteDetalhadoResponse(pedido);
+	}
+
+	@Override
+	public void deletaPedidoDoClienteComID(UUID idCliente, UUID idPedido) {
+		log.info("[inica] PedidoApplicationService - deletaPedidoDoClienteComID");
+	    clienteService.buscaClienteAtravesId(idCliente);
+	    Pedido pedido = pedidoRepository.buscaPedidoPeloId(idPedido);
+	    pedidoRepository.deletaPedido(pedido);
+	    log.info("[finaliza] PedidoApplicationService - deletaPedidoDoClienteComID");
 	}
 
 }

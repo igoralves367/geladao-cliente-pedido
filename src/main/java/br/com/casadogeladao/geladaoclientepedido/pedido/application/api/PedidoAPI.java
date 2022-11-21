@@ -26,7 +26,4 @@ public interface PedidoAPI {
 	@ResponseStatus(code = HttpStatus.OK)
 	List<PedidoClienteListResponse> getPedidosDoClienteComId(@PathVariable UUID idCliente);
 	
-	@DeleteMapping(value = "/{idPedido}")
-	@ResponseStatus(code = HttpStatus.NO_CONTENT)
-	void deletePedidoClienteComId(@PathVariable UUID idCliente, @PathVariable UUID idPedido);
 }

@@ -30,7 +30,7 @@ public class PedidoInfraRepository implements PedidoRepository {
 	@Override
 	public List<Pedido> buscaPedidosDoClienteComId(UUID idCliente) {
 		log.info("[inicia] PedidoInfraRepository - buscaPedidosDoClienteComId");
-		List<Pedido> pedidos = pedidoSpringDataJPARepository.findByIdClientePedido(idCliente);
+		var pedidos = pedidoSpringDataJPARepository.findByIdClientePedido(idCliente);
 		log.info("[finaliza] PedidoInfraRepository - buscaPedidosDoClienteComId");
 		return pedidos;		
 	}

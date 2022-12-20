@@ -35,8 +35,8 @@ public class PedidoController implements PedidoAPI {
 	@Override
 	public PedidoClienteDetalhadoResponse getPedidoDoClienteComId(UUID idCliente, UUID idPedido) {
 		log.info("[inicia] PedidoController - getPedidoDoClienteComId");
-		log.info("[idCliente] {} - [idPet] {}", idCliente, idPedido);
-		PedidoClienteDetalhadoResponse pedido = pedidoService.buscaPedidoDoClienteComID(idCliente, idPedido);
+		log.info("[idCliente] {} - [idPedido] {}", idCliente, idPedido);
+		PedidoClienteDetalhadoResponse pedido = pedidoService.buscaPedidoDoClienteComId(idCliente, idPedido);
 		log.info("[finaliza] PedidoController - getPedidoDoClienteComId");
 		return pedido;
 	}
@@ -44,7 +44,7 @@ public class PedidoController implements PedidoAPI {
 	@Override
 	public void deletePedidoClienteComId(UUID idCliente, UUID idPedido) {
 		log.info("[inicia] PedidoController - deletePedidoClienteComId");
-		log.info("[idCliente] {} - [idPet] {}", idCliente, idPedido);
+		log.info("[idCliente] {} - [idPedido] {}", idCliente, idPedido);
 		pedidoService.deletaPedidoDoClienteComID(idCliente, idPedido);
 		log.info("[finaliza] PedidoController - deletePedidoClienteComId");
 	}

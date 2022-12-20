@@ -13,6 +13,6 @@ import br.com.casadogeladao.geladaoclientepedido.pedido.application.api.PedidoRe
 public interface PedidoService {
 	PedidoResponse criaPedido(UUID idCliente, @Valid PedidoRequest pedidoRequest);
 	List<PedidoClienteListResponse> buscaPedidosDoClienteComId(UUID idCliente);
-	PedidoClienteDetalhadoResponse buscaPedidoDoClienteComID(UUID idCliente, UUID idPedido);
+	PedidoClienteDetalhadoResponse buscaPedidoDoClienteComId(UUID idCliente, UUID idPedido);
 	void deletaPedidoDoClienteComID(UUID idCliente, UUID idPedido);
 }

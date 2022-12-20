@@ -42,7 +42,7 @@ public class PedidoApplicationService implements PedidoService {
 	}
 
 	@Override
-	public PedidoClienteDetalhadoResponse buscaPedidoDoClienteComID(UUID idCliente, UUID idPedido) {
+	public PedidoClienteDetalhadoResponse buscaPedidoDoClienteComId(UUID idCliente, UUID idPedido) {
 		log.info("[inica] PedidoApplicationService - buscaPedidoDoClienteComID");
 	    clienteService.buscaClienteAtravesId(idCliente);
 	    Pedido pedido = pedidoRepository.buscaPedidoPeloId(idPedido);	 
